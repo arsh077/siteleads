@@ -1,0 +1,6 @@
+{
+  "name": "LeadSync - Equal Lead Distribution",
+  "description": "Screenshot dump lead distribution platform with equal round-robin allocation, Facebook-inspired auth, employee response sheets, and admin controls.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

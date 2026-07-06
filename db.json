@@ -1,0 +1,172 @@
+{
+  "users": [
+    {
+      "id": "u-admin-1",
+      "username": "admin",
+      "passwordHash": "123",
+      "name": "Admin Master",
+      "role": "admin",
+      "isActive": true,
+      "createdAt": "2026-07-06T06:50:17.110Z"
+    },
+    {
+      "id": "u-emp-1",
+      "username": "rohan",
+      "passwordHash": "123",
+      "name": "Rohan Sharma",
+      "role": "employee",
+      "isActive": true,
+      "createdAt": "2026-07-06T06:50:17.110Z"
+    },
+    {
+      "id": "u-emp-2",
+      "username": "priya",
+      "passwordHash": "123",
+      "name": "Priya Singh",
+      "role": "employee",
+      "isActive": true,
+      "createdAt": "2026-07-06T06:50:17.110Z"
+    },
+    {
+      "id": "u-emp-3",
+      "username": "amit",
+      "passwordHash": "123",
+      "name": "Amit Verma",
+      "role": "employee",
+      "isActive": true,
+      "createdAt": "2026-07-06T06:50:17.110Z"
+    },
+    {
+      "id": "u-emp-4",
+      "username": "sneha",
+      "passwordHash": "123",
+      "name": "Sneha Gupta",
+      "role": "employee",
+      "isActive": false,
+      "createdAt": "2026-07-06T06:50:17.110Z"
+    }
+  ],
+  "leads": [
+    {
+      "id": "ld-101",
+      "batchId": "batch-01",
+      "name": "Sandeep Malhotra",
+      "phone": "+91 98765 43210",
+      "email": "sandeep.m@gmail.com",
+      "source": "Facebook Ad Dump #1",
+      "assignedToId": "u-emp-1",
+      "assignedToName": "Rohan Sharma",
+      "status": "In Progress",
+      "notes": "Called yesterday. Requested product catalog PDF on WhatsApp.",
+      "createdAt": "2026-07-04T06:50:17.110Z",
+      "updatedAt": "2026-07-06T04:50:17.110Z",
+      "lastActionAt": "2026-07-06T04:50:17.110Z"
+    },
+    {
+      "id": "ld-102",
+      "batchId": "batch-01",
+      "name": "Anjali Deshmukh",
+      "phone": "+91 88234 11092",
+      "email": "anjali.d@yahoo.com",
+      "source": "Facebook Ad Dump #1",
+      "assignedToId": "u-emp-2",
+      "assignedToName": "Priya Singh",
+      "status": "Called",
+      "notes": "Discussed pricing tier. Needs follow up tomorrow at 3 PM.",
+      "createdAt": "2026-07-04T06:50:17.110Z",
+      "updatedAt": "2026-07-05T15:50:17.110Z",
+      "lastActionAt": "2026-07-05T15:50:17.110Z"
+    },
+    {
+      "id": "ld-103",
+      "batchId": "batch-01",
+      "name": "Vikram Rathore",
+      "phone": "+91 77665 44332",
+      "email": "vikram.r@outlook.com",
+      "source": "Facebook Ad Dump #1",
+      "assignedToId": "u-emp-3",
+      "assignedToName": "Amit Verma",
+      "status": "Follow Up",
+      "notes": "High interest in bulk licenses. Scheduled demo.",
+      "createdAt": "2026-07-04T06:50:17.110Z",
+      "updatedAt": "2026-07-06T05:50:17.110Z",
+      "lastActionAt": "2026-07-06T05:50:17.110Z"
+    },
+    {
+      "id": "ld-104",
+      "batchId": "batch-01",
+      "name": "Karan Mehra",
+      "phone": "+91 90088 77665",
+      "email": "karan.mehra@tech.in",
+      "source": "Facebook Ad Dump #1",
+      "assignedToId": "u-emp-1",
+      "assignedToName": "Rohan Sharma",
+      "status": "New",
+      "notes": "Freshly allocated from batch dump.",
+      "createdAt": "2026-07-06T01:50:17.110Z",
+      "updatedAt": "2026-07-06T01:50:17.110Z",
+      "lastActionAt": "2026-07-06T01:50:17.110Z"
+    },
+    {
+      "id": "ld-105",
+      "batchId": "batch-01",
+      "name": "Neha Kakkar",
+      "phone": "+91 91234 56789",
+      "email": "neha.k@gmail.com",
+      "source": "Facebook Ad Dump #1",
+      "assignedToId": "u-emp-2",
+      "assignedToName": "Priya Singh",
+      "status": "Interested",
+      "notes": "Sent payment link.",
+      "createdAt": "2026-07-06T02:50:17.110Z",
+      "updatedAt": "2026-07-06T02:50:17.110Z",
+      "lastActionAt": "2026-07-06T02:50:17.110Z"
+    },
+    {
+      "id": "ld-106",
+      "batchId": "batch-01",
+      "name": "Rajesh Kumar",
+      "phone": "+91 99887 76655",
+      "email": "rajesh.k@company.com",
+      "source": "Facebook Ad Dump #1",
+      "assignedToId": "u-emp-3",
+      "assignedToName": "Amit Verma",
+      "status": "New",
+      "notes": "Fresh lead allocated.",
+      "createdAt": "2026-07-06T03:50:17.110Z",
+      "updatedAt": "2026-07-06T03:50:17.110Z",
+      "lastActionAt": "2026-07-06T03:50:17.110Z"
+    }
+  ],
+  "updates": [
+    {
+      "id": "up-1",
+      "leadId": "ld-101",
+      "userId": "u-emp-1",
+      "userName": "Rohan Sharma",
+      "status": "In Progress",
+      "note": "Initial call connected. Customer interested in corporate plan.",
+      "createdAt": "2026-07-06T04:50:17.110Z"
+    },
+    {
+      "id": "up-2",
+      "leadId": "ld-102",
+      "userId": "u-emp-2",
+      "userName": "Priya Singh",
+      "status": "Called",
+      "note": "Spoke with client. Asked to follow up tomorrow afternoon.",
+      "nextFollowupDate": "2026-07-05T15:00",
+      "createdAt": "2026-07-05T15:50:17.110Z"
+    }
+  ],
+  "batches": [
+    {
+      "id": "batch-01",
+      "uploadedBy": "admin",
+      "imageUrls": [],
+      "leadCount": 6,
+      "notes": "Initial Facebook campaign leads dump",
+      "createdAt": "2026-07-04T06:50:17.110Z"
+    }
+  ]
+}
