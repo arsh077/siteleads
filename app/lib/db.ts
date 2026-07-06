@@ -67,6 +67,14 @@ interface DatabaseSchema {
 
 const DB_PATH = path.join(process.cwd(), 'db.json');
 
+// In-memory cache for serverless environments
+let inMemoryDb: DatabaseSchema | null = null;
+
+// Check if running in serverless environment
+function isServerless(): boolean {
+  return process.env.VERCEL === '1' || process.env.AWS_LAMBDA_FUNCTION_NAME !== undefined;
+}
+
 const INITIAL_USERS: User[] = [
   {
     id: 'u-admin-1',
@@ -243,6 +251,21 @@ const INITIAL_BATCHES: LeadBatch[] = [
 
 // Helper to initialize and read DB
 function readDb(): DatabaseSchema {
+  // Use in-memory database for serverless environments
+  if (isServerless()) {
+    if (!inMemoryDb) {
+      console.log('Initializing in-memory database for serverless environment');
+      inMemoryDb = {
+        users: INITIAL_USERS,
+        leads: INITIAL_LEADS,
+        updates: INITIAL_UPDATES,
+        batches: INITIAL_BATCHES
+      };
+    }
+    return inMemoryDb;
+  }
+  
+  // For local development, use file system
   if (!fs.existsSync(DB_PATH)) {
     const defaultData: DatabaseSchema = {
       users: INITIAL_USERS,
@@ -250,7 +273,11 @@ function readDb(): DatabaseSchema {
       updates: INITIAL_UPDATES,
       batches: INITIAL_BATCHES
     };
-    fs.writeFileSync(DB_PATH, JSON.stringify(defaultData, null, 2), 'utf-8');
+    try {
+      fs.writeFileSync(DB_PATH, JSON.stringify(defaultData, null, 2), 'utf-8');
+    } catch (error) {
+      console.error('Could not create database file:', error);
+    }
     return defaultData;
   }
   try {
@@ -264,13 +291,29 @@ function readDb(): DatabaseSchema {
       updates: INITIAL_UPDATES,
       batches: INITIAL_BATCHES
     };
-    fs.writeFileSync(DB_PATH, JSON.stringify(defaultData, null, 2), 'utf-8');
+    try {
+      fs.writeFileSync(DB_PATH, JSON.stringify(defaultData, null, 2), 'utf-8');
+    } catch (error) {
+      console.error('Could not write database file:', error);
+    }
     return defaultData;
   }
 }
 
 function writeDb(data: DatabaseSchema) {
-  fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2), 'utf-8');
+  // For serverless environments, update in-memory cache
+  if (isServerless()) {
+    inMemoryDb = data;
+    console.log('Updated in-memory database (changes will not persist across deployments)');
+    return;
+  }
+  
+  // For local development, write to file
+  try {
+    fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2), 'utf-8');
+  } catch (error) {
+    console.error('Failed to write to database file:', error);
+  }
 }
 
 // User Actions
