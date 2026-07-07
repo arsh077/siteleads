@@ -68,7 +68,7 @@ export async function updateProfileAction(
 
   try {
     const { updateUserCredentials } = await import('../lib/db');
-    updateUserCredentials(
+    await updateUserCredentials(
       currentUser.id,
       name.trim(),
       username.toLowerCase().trim(),
