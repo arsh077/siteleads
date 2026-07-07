@@ -80,7 +80,32 @@ https://siteleads-seven.vercel.app
 
 ---
 
+### 10. FIREBASE_SERVICE_ACCOUNT_KEY (Important for Server-Side Operations)
+
+**⚠️ SECURITY NOTE**: This contains your private key. Add it directly in Vercel Dashboard, DO NOT commit to Git!
+
+**Value**: Use the JSON service account key you downloaded from Firebase Console.
+
+**How to add**:
+1. Go to Vercel Dashboard → Settings → Environment Variables
+2. Name: `FIREBASE_SERVICE_ACCOUNT_KEY`
+3. Value: Paste the entire JSON (including the private key)
+4. Environment: Production, Preview, Development
+5. Save
+
+**To get this key**:
+1. Go to Firebase Console → Project Settings → Service Accounts
+2. Click "Generate new private key"
+3. Download the JSON file
+4. Copy the entire contents and paste in Vercel
+
+**Environment**: Production, Preview, Development
+
+---
+
 ## 📋 Quick Copy-Paste (for CLI or bulk import)
+
+**⚠️ WARNING**: Do not include `FIREBASE_SERVICE_ACCOUNT_KEY` in public repositories!
 
 ```bash
 SESSION_SECRET="ds97tXmabMdsRFjvAC3xuiFVhUMqpGXK2BLPWwIJaL8="
@@ -93,6 +118,8 @@ NEXT_PUBLIC_FIREBASE_APP_ID="1:947440956590:web:b44caedd63b8b41156e93f"
 NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID="G-YWPZPBKLT9"
 APP_URL="https://siteleads-seven.vercel.app"
 ```
+
+For `FIREBASE_SERVICE_ACCOUNT_KEY`, add it manually through Vercel Dashboard using the service account JSON.
 
 ---
 
